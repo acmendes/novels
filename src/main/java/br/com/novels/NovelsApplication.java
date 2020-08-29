@@ -21,15 +21,15 @@ public class NovelsApplication extends WebSecurityConfigurerAdapter  {
 				.antMatchers("/", "/error", "/webjars/**").permitAll()
 				.anyRequest().authenticated()
 				)
-				.exceptionHandling(e -> e
-						.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
+			.exceptionHandling(e -> e
+					.authenticationEntryPoint(new HttpStatusEntryPoint(HttpStatus.UNAUTHORIZED))
 				)
-				.logout(l -> l
-						.logoutSuccessUrl("/").permitAll()
+			.logout(l -> l
+					.logoutSuccessUrl("/").permitAll()
 				)
-				.csrf(c -> c
-						.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
+			.csrf(c -> c
+					.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())
 				)
-				.oauth2Login();
+			.oauth2Login();
 	}
 }

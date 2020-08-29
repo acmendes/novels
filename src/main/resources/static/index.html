@@ -41,11 +41,25 @@
       }
     });
     }
+
+    $.get("/error", function(data) {
+    if (data) {
+        $(".error").html(data);
+    } else {
+        $(".error").html('');
+    }
+});
 </script>
 <body>
-<h1>Demo</h1>
+<h1>Novels</h1>
+<div class="container text-danger error"></div>
 <div class="container unauthenticated">
-    With GitHub: <a href="/oauth2/authorization/github">click here</a>
+    <div>
+        With GitHub: <a href="/oauth2/authorization/github">click here</a>
+    </div>
+    <div>
+        With Google: <a href="/oauth2/authorization/google">click here</a>
+    </div>
 </div>
 <div class="container authenticated" style="display:none">
     Logged in as: <span id="user"></span>
